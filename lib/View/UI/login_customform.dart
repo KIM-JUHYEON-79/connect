@@ -28,29 +28,28 @@ class CustomForm extends StatelessWidget {
           SizedBox(height: 10),
           CustomTextFormField("비밀번호"),
           SizedBox(height: 100),
-      Container(
-        margin: EdgeInsets.only(left: 10,right: 10),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            primary : Color(0xff42A5F5),
-            elevation: 5,
-            padding: EdgeInsets.only(bottom: 10, top: 10, left: 150,right: 150),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(40),
-            ),
-          ),
-          onPressed: ()  async{
+          Container(
+            margin: EdgeInsets.only(left: 10,right: 10),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary : Color(0xff42A5F5),
+                elevation: 5,
+                padding: EdgeInsets.only(bottom: 10, top: 10, left: 150,right: 150),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(40),
+                ),
+              ),
+              onPressed: ()  async{
              //print( await _postRequest());
              if (_formKey.currentState!.validate()) {
                Navigator.of(context).pushNamed('/welcome');
              }
-          },
-          child: Text("로그인",
-              style:TextStyle(color: Colors.white, fontSize: 20)
+             },
+              child: Text("로그인",
+                  style:TextStyle(color: Colors.white, fontSize: 20)
+              ),
+            ),
           ),
-        ),
-      ),
-
         ],
       ),
     );

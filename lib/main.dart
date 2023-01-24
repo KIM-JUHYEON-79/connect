@@ -7,6 +7,8 @@ import 'package:connect/View/Pages/connect_signup.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'View/Pages/connect_findpassword.dart';
+
 
 
 void main(){
@@ -27,6 +29,8 @@ class MyApp extends StatelessWidget {
         '/welcome' : (context) => WelcomePage(title: 'welcome'),
         '/list' : (context) => ListPage(title : 'list'),
         '/signup':(context) => SignUpPage(title:'sign up'),
+        '/findpassword' : (context) => FindPasswordPage(title: 'findpassword'),
+
 
       },
     );

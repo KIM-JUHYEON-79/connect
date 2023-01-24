@@ -10,7 +10,6 @@ class ListPage extends StatefulWidget {
 
   State<ListPage> createState() => _ListPageState();
 }
-// final TextEditingController myController = new TextEditingController();
 @override
 
 class _ListPageState extends State<ListPage>{
@@ -157,7 +156,6 @@ class _ListPageState extends State<ListPage>{
                                                 arguments: classes);}},
                                         child: Text('교실생성'),
                                       )
-
                                     ],
 
                                   );

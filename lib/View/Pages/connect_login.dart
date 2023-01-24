@@ -26,7 +26,10 @@ class LoginPage extends StatelessWidget{
                 SizedBox(height: 10),
                 SignupButton(),
                 SizedBox(height: 10),
-                TextButton(onPressed:(){ print('비밀번호찾기페이지');},
+                TextButton(onPressed:(){
+                  Navigator.pushNamed(context, "/findpassword");
+                  print('비밀번호찾기페이지');
+                  },
                     child: Text(
                         '비밀번호를 잊으셨나요?',
                         style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold,

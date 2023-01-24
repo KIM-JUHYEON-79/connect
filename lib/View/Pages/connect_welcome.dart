@@ -26,7 +26,6 @@ class WelcomePage extends StatefulWidget {
     final TextEditingController _PayController = TextEditingController();
 
     Widget build(BuildContext context){
-
     return Scaffold(
       appBar: AppBar(
         title: Text('과외time'),
@@ -165,7 +164,7 @@ class WelcomePage extends StatefulWidget {
 
                                    );
                                  });
-                               },
+                                 },
                                  style: ElevatedButton.styleFrom(
                                    primary : Color(0xff42A5F5),
                                    elevation: 5,

@@ -103,12 +103,9 @@ class _SignUpPageState extends State<SignUpPage> {
                     errorBorder: OutlineInputBorder(),
                     hintText: '이름'
                   ),
-                  validator: (value) {
-                    if(value!.isEmpty){
-                      return '이름을 입력해주세요';
-                    }
-                    return null;
-                  },
+                  validator: (value) => value!.isEmpty
+                      ? "이름을 입력해주세요"
+                      : null,
                 ),
                 SizedBox(height: 10),
                 Text('주민등록번호', style: TextStyle(fontWeight: FontWeight.bold)),
@@ -122,16 +119,12 @@ class _SignUpPageState extends State<SignUpPage> {
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
                           errorBorder: OutlineInputBorder(),
-
                           hintText: '주민등록번호',
                           counterText:'',
                         ),
-                        validator: (value) {
-                          if(value!.isEmpty){
-                            return '주민등록번호을 입력해주세요';
-                          }
-                          return null;
-                        },
+                        validator: (value) => value!.isEmpty
+                            ? "주민번호을 입력해주세요"
+                            : null,
                       ),
                       width: 150,
                     ),
@@ -146,12 +139,9 @@ class _SignUpPageState extends State<SignUpPage> {
                           errorBorder: OutlineInputBorder(),
                           counterText:'',
                         ),
-                        validator: (value) {
-                          if(value!.isEmpty){
-                            return '주민등록번호 뒷자리를 입력해주세요';
-                          }
-                          return null;
-                        },
+                        validator: (value) => value!.isEmpty
+                            ? "주민번호 뒷자리 한자리 수를 입력해주세요"
+                            : null,
                       ),
                       width: 40,
                     ),
@@ -167,12 +157,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       errorBorder: OutlineInputBorder(),
                       hintText: '아이디'
                   ),
-                  validator: (value) {
-                    if(value!.isEmpty){
-                      return '아이디를 입력해주세요';
-                    }
-                    return null;
-                  },
+                  validator: (value) => value!.isEmpty
+                      ? "아이디를 입력해주세요"
+                      : null,
                 ),
                 SizedBox(height: 10),
                 Text('휴대폰 번호', style: TextStyle(fontWeight: FontWeight.bold)),
@@ -190,12 +177,9 @@ class _SignUpPageState extends State<SignUpPage> {
                           counterText:'',
 
                         ),
-                        validator: (value) {
-                          if(value!.isEmpty){
-                            return '휴대폰 번호를 입력해주세요';
-                          }
-                          return null;
-                        },
+                        validator: (value) => value!.isEmpty
+                            ? "휴대폰 번호를 입력해주세요"
+                            : null,
                       ),
                       width: 250,
                     ),
@@ -223,12 +207,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       border: OutlineInputBorder(),
                       hintText: '인증번호 입력'
                   ),
-                  validator: (value) {
-                    if(value!.isEmpty){
-                      return '인증번호를 입력해주세요';
-                    }
-                    return null;
-                  },
+                  validator: (value) => value!.isEmpty
+                      ? "인증번호를 입력해주세요"
+                      : null,
                 ),
                 SizedBox(height: 10),
                 Text('비밀번호', style: TextStyle(fontWeight: FontWeight.bold)),
@@ -238,12 +219,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       border: OutlineInputBorder(),
                       hintText: '비밀번호를 입력해주세요'
                   ),
-                  validator: (value) {
-                    if(value!.isEmpty){
-                      return '비밀번호를 입력해주세요';
-                    }
-                    return null;
-                  },
+                  validator: (value) => value!.isEmpty
+                      ? "비밀번호를 입력해주세요"
+                      : null,
                 ),
                 SizedBox(height: 10),
                 TextFormField(
@@ -270,6 +248,8 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
+                        Navigator.of(context).pushNamed('/login', arguments: user);
+
                         user.checkIdentity = checkList1.toString();
                         user.name = _NameController.text;
                         user.RegisdentNumber = int.parse(_RegisdentNumberController.text) ;
@@ -277,11 +257,15 @@ class _SignUpPageState extends State<SignUpPage> {
                         user.ID = int.parse(_IDController.text);
                         user.PhoneNumber = int.parse(_PhoneNumberController.text);
                         user.Password = int.parse(_PasswordController.text);
-
-                        Navigator.pushNamed(context,
-                            '/login',
-                            arguments: user);
                       }
+                  /*    else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('미입력 값이 있습니다.'),
+                              duration: Duration(seconds: 2),
+                            )
+                        );
+                      }*/
                     },
                     child: Text("로그인", style: TextStyle(color: Colors.white, fontSize: 20))
                 ),
@@ -290,9 +274,6 @@ class _SignUpPageState extends State<SignUpPage> {
               ],
             ),
           )
-
-
-
 
         ],
 
